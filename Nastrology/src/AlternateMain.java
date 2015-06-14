@@ -60,7 +60,7 @@ public class AlternateMain {
 			case 4:
 				monthSign = "Cancer";
 				monthNumREP = 4;
-				signDescription = "4. Moody, caring, dependable, homely, family-oriented / issues, over-sensitive, insecure, responsive\n";
+				signDescription = "4. Moody, caring, dependable, homely, family-oriented / issues, over-sensitive, slightly insecure, responsive\n";
 				break;
 			case 5:
 				monthSign = "Leo";
@@ -85,7 +85,7 @@ public class AlternateMain {
 			case 9:
 				monthSign = "Sagittarius";
 				monthNumREP = 9;
-				signDescription = "9. Exciting, independable, unemotional, adventurous, mutable, philosophical, stubborn, argumentative\n";
+				signDescription = "9. Exciting, independable, unemotional, adventurous, mutable (changeable), philosophical, stubborn, argumentative\n";
 				break;
 			case 10:
 				monthSign = "Capricorn";
@@ -100,7 +100,7 @@ public class AlternateMain {
 			case 12:
 				monthSign = "Pisces";
 				monthNumREP = 12;
-				signDescription = "12. Emotional, compassionate, devoted, lazy, imaginative, oversensitiv, self-pitying, escapist\n";
+				signDescription = "12. Emotional, compassionate, devoted, lazy, imaginative, oversensitive, self-pitying, escapist\n";
 				break;
 			default:
 				monthSign = "Invalid month";
@@ -115,7 +115,7 @@ public class AlternateMain {
 System.out.println("\n**********************************************************");
 		System.out
 				.println("\n***** Now Select from ONE from the LIST below:-");
-		//Displaying selected list using loopindex, remember u can also do without INDEX
+		//Displaying selected list using loop index, remember u can also do without INDEX
 		for (int i = 0; i < possibleList.length; i++) {
 			//System.out.println(hiddenPossibleSign[i]); //Do not display 3 guesses yet
 			System.out.println(possibleList[i]);
@@ -184,10 +184,19 @@ System.out.println("\n**********************************************************
 		Scanner selectYesorNo = new Scanner(System.in);
 		String amIRight = selectYesorNo.nextLine();
 		
+		while (amIRight.toLowerCase().contentEquals("")){
+			
+			System.out.println("You are a ....." + monthSign.toUpperCase());
+
+			System.out.print("\nDid I guess it right? please Enter 'YES' or 'NO':");
+			amIRight = selectYesorNo.nextLine();
+		}
+		
 		if (amIRight.toLowerCase().contentEquals("yes")) {
 			System.out
 					.println("THANKS FOR PLAYING, ASTROLOGY IN YOUR FACE BITCH!");
-		} else {
+		} 
+		else {
 			System.out
 					.println("\nOkay you got me, Is it any of the following 3?...");
 			// Displays 3 possible signs with ForLoop WITHOUT LOOPINDEX
