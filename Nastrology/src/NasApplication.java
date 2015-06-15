@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
-public class signDescription {
+public class NasApplication {
 	// Prints list of Options
 
 	public static void printOptionMenu() {
-
+		String[] signDesc = ProfilesDescription.signDescription;
 		String monthSign = "";
 		String signDescription = "";
 
@@ -13,43 +13,13 @@ public class signDescription {
 		String[] selectedProfiles = new String[3];
 		String[] hiddenSelectedSign = new String[3];
 
-		Scanner enterKey = new Scanner(System.in);
-
 		// Scanner system
 		Scanner selectNum = new Scanner(System.in);
 
 		int month = 1; // nothing, initialises month ID
 
-		// Gets sign Description text from OriginalSignDescription.java class
-		String[] signDesc = OriginalSignDescription.signDescription;
-
-		System.out
-				.println("\t\t\t***************** TEST BEGINS *****************");
-		System.out.println("LEVEL 1");
-		// Loops starts at 0, then ends at 4 (12/3)
-		for (int i = 0; i < signDesc.length / 3; i++)
-			System.out.println(signDesc[i]);
-
-		System.out
-				.println("\n* Use ENTER key on your Keyboard for next Level *");
-		String pressEnter = enterKey.nextLine();
-		System.out.println("\nLEVEL 2");
-		// loop starts at 4, but end at 8 (12-4)
-		for (int i = 4; i < signDesc.length - 4; i++)
-			System.out.println(signDesc[i]);
-
-		System.out
-				.println("\n* Use ENTER key on your Keyboard for next Level *");
-		pressEnter = enterKey.nextLine();
-
-		System.out.println("\nLEVEL 3");
-		// loop starts at 8, but end at 12
-		for (int i = 8; i < signDesc.length; i++)
-			System.out.println(signDesc[i]);
-
 		int counter = 0; // counts the number of level
 
-		String enterGame = enterKey.nextLine();
 		System.out
 				.println("\t*************** NOW, LETS WRITE THEM DOWN *************** ");
 		// if month types is greater than 0 and less than 12
@@ -116,7 +86,7 @@ public class signDescription {
 			}
 			// Passes values into memory location, increment by counter i.e.
 			// List[increment]
-			selectedProfiles[counter - 1] = signDescription.substring(3);
+			selectedProfiles[counter - 1] = signDescription; //Use substring(3) to rid numbers
 			hiddenSelectedSign[counter - 1] = monthSign;
 		}
 
@@ -135,7 +105,8 @@ public class signDescription {
 		int finalSign = selectNum.nextInt();
 		int finalmonth = finalSign;
 		switch (finalmonth) {
-		//If user select option from 3 info, option is mapped to location in array
+		// If user select option from 3 info, option is mapped to location in
+		// array
 		case 1:
 			monthSign = hiddenSelectedSign[0];
 			signDescription = selectedProfiles[0];
@@ -176,7 +147,9 @@ public class signDescription {
 		} else {
 			System.out
 					.println("\nOkay you got me, Is it any of the following 3?...");
+			
 			// Displays 3 possible signs with ForLoop WITHOUT LOOPINDEX
+			//Displaying all list in array with using typical forloop
 			for (String starSign : hiddenSelectedSign) {
 				System.out.println(starSign);
 			}
