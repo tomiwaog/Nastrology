@@ -32,7 +32,7 @@ public class AlternateMain {
 
 		
 		String enterGame = selectNum.nextLine();
-		System.out.println("*************** NOW, LETS WRITE THEM DOWN *************** ");
+		System.out.println("\t*************** NOW, LETS WRITE THEM DOWN *************** ");
 		// if month types is greater than 0 and less than 12
 		while ((month >= 0) && (month < max) && (counter < 3)) {
 			counter++;
